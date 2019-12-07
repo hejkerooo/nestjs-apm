@@ -1,0 +1,93 @@
+{
+  "name": "elastic-apm-nest",
+  "version": "0.0.2",
+  "description": "Elastic APM for NestJS",
+  "author": "Krzysztof Szostak",
+  "scripts": {
+    "commit": "git-cz",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage",
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "lint": "tslint -p tsconfig.json -c tslint.json",
+    "build": "rm -rf dist && tsc -p tsconfig.json",
+    "prepublish": "npm run build && npm run test",
+    "publish:npm": "npm publish --access public",
+    "prepublish:next": "npm run build && npm run test",
+    "build:test": "npm build && npm pack",
+    "release": "standard-version",
+    "docker": "docker-compose -f docker/docker-compose.yml up -d"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run test && npm run lint",
+      "pre-commit": "lint-staged",
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
+    }
+  },
+  "engines": {
+    "node": ">= 10.15.1"
+  },
+  "peerDependencies": {
+    "@nestjs/common": "^6.0.0",
+    "@nestjs/core": "^6.0.0",
+    "reflect-metadata": "^0.1.12",
+    "rxjs": "^6.0.0",
+    "elastic-apm-node": "^3.3.0"
+  },
+  "devDependencies": {
+    "@nestjs/common": "6.5.3",
+    "@nestjs/core": "6.5.3",
+    "@nestjs/platform-express": "^6.10.8",
+    "@nestjs/testing": "^6.5.3",
+    "@types/jest": "24.0.17",
+    "@types/node": "11.13.4",
+    "@types/supertest": "2.0.7",
+    "cz-conventional-changelog": "^3.0.2",
+    "husky": "3.0.3",
+    "jest": "24.8.0",
+    "lint-staged": "9.2.1",
+    "prettier": "1.17.0",
+    "rxjs": "6.5.2",
+    "standard-version": "^7.1.0",
+    "supertest": "^4.0.2",
+    "ts-jest": "24.0.2",
+    "tslint": "5.16.0",
+    "typescript": "^3.7.2"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "test",
+    "testRegex": ".spec.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "collectCoverageFrom": [
+      "**/*.(t|j)s"
+    ],
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node"
+  },
+  "dependencies": {
+    "@nestjs/common": "^6.5.3",
+    "@nestjs/core": "^6.5.3",
+    "elastic-apm-node": "^3.3.0",
+    "reflect-metadata": "^0.1.13"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}

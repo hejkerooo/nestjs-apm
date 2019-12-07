@@ -1,0 +1,14 @@
+# source
+lib
+tests
+test.module.ts
+package-lock.json
+tslint.json
+tsconfig.json
+.prettierrc
+test/
+.idea/
+*.tgz
+node_modules
+README.MD
+package-lock.json
