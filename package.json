@@ -16,7 +16,7 @@
     "publish:npm": "npm publish --access public",
     "prepublish:next": "npm run build && npm run test",
     "build:test": "npm build && npm pack",
-    "release": "standard-version",
+    "release": "HUSKY_SKIP_HOOKS=1 standard-version --no-verify",
     "docker": "docker-compose -f docker/docker-compose.yml up -d"
   },
   "husky": {
