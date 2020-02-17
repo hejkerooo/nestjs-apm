@@ -1,8 +1,9 @@
 {
   "name": "elastic-apm-nest",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "Elastic APM for NestJS",
   "author": "Krzysztof Szostak",
+  "homepage": "https://github.com/hejkerooo/nestjs-apm",
   "scripts": {
     "commit": "git-cz",
     "test": "jest",
@@ -16,14 +17,13 @@
     "publish:npm": "npm publish --access public",
     "prepublish:next": "npm run build && npm run test",
     "build:test": "npm build && npm pack",
-    "release": "standard-version",
+    "release": "HUSKY_SKIP_HOOKS=1 standard-version --no-verify",
     "docker": "docker-compose -f docker/docker-compose.yml up -d"
   },
   "husky": {
     "hooks": {
       "pre-push": "npm run test && npm run lint",
-      "pre-commit": "lint-staged",
-      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
+      "pre-commit": "lint-staged"
     }
   },
   "engines": {
