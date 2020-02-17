@@ -1,15 +1,16 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { APM_INSTANCE } from '../constants';
 import { ApmError, ApmFilter } from '../interface';
+import * as APM from 'elastic-apm-node';
 
 @Injectable()
 export class ApmService {
   constructor(
     @Inject(APM_INSTANCE)
-    protected readonly apmInstance: any,
+    protected readonly apmInstance: APM.Agent,
   ) {}
 
-  public startTransaction(name?: string, type?: string): any {
+  public startTransaction(name: string | null, type: string | null): any {
     return this.apmInstance.startTransaction(name, type);
   }
 

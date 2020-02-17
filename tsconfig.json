@@ -13,8 +13,15 @@
     "rootDir": "./lib",
     "skipLibCheck": true,
     "strictNullChecks": true,
+    "baseUrl": "./",
+    "paths": {
+      "*": [
+        "lib/*",
+        "types/*"
+      ]
+    },
     "typeRoots": [
-      "./typings",
+      "./node_modules/elastic-apm-node/index.d.ts",
       "./node_modules/@types"
     ]
   },
