@@ -1,6 +1,6 @@
 {
   "name": "elastic-apm-nest",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Elastic APM for NestJS",
   "author": "Krzysztof Szostak",
   "homepage": "https://github.com/hejkerooo/nestjs-apm",
