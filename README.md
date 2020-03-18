@@ -59,7 +59,7 @@ import { ApmModule } from 'elastic-apm-nest';
     ApmModule.forRootAsync({
       useFactory: async () => {
         return {
-          httpUserMapFunction: (request: any) => {
+          httpUserMapFunction: (req: any) => {
             return {
               id: req.user.id,
               username: req.user.username,
