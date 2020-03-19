@@ -21,7 +21,7 @@ import { Test } from '@nestjs/testing';
 import * as request from 'supertest';
 import { APP_INTERCEPTOR } from '@nestjs/core';
 import { ApmModule } from '../../lib/apm/apm.module';
-import { ApmUserContextInterceptor } from '../../lib/apm/service/apm-user-context.interceptor';
+import { ApmHttpUserContextInterceptor } from '../../lib/apm/service/apm-http-user-context-interceptor.service';
 import { ApmErrorInterceptor } from '../../lib/apm/service/apm-error.interceptor';
 
 @Controller()

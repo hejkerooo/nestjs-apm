@@ -14,7 +14,7 @@ jest.mock('elastic-apm-node', () => ({
   }),
 }));
 
-import { ApmUserContextInterceptor } from '../../lib/apm/service/apm-user-context.interceptor';
+import { ApmHttpUserContextInterceptor } from '../../lib/apm/service/apm-http-user-context-interceptor.service';
 import {
   APM_INSTANCE,
   APM_MIDDLEWARE,
@@ -35,7 +35,7 @@ describe('apm.module', () => {
       expect(app.get(APM_OPTIONS)).toBeDefined();
       expect(app.get(APM_INSTANCE)).toBeDefined();
       expect(app.get(APM_MIDDLEWARE)).toBeDefined();
-      expect(ApmUserContextInterceptor).toBeDefined();
+      expect(ApmHttpUserContextInterceptor).toBeDefined();
     });
   });
 });
