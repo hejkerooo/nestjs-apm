@@ -9,7 +9,7 @@ import {
 import { getInstance } from './apm.util';
 import { ApmAsyncOptions, ApmOptions } from './interface';
 import { FactoryProvider } from '@nestjs/common/interfaces';
-import { ApmUserContextInterceptor } from './service/apm-user-context.interceptor';
+import { ApmHttpUserContextInterceptor } from './service/apm-http-user-context-interceptor.service';
 import { ApmErrorInterceptor } from './service/apm-error.interceptor';
 
 const providers: Provider[] = [
@@ -22,9 +22,9 @@ const providers: Provider[] = [
     },
   },
   {
-    provide: ApmUserContextInterceptor,
+    provide: ApmHttpUserContextInterceptor,
     useFactory: (apmService: ApmService, apmOptions: ApmOptions) => {
-      return new ApmUserContextInterceptor(
+      return new ApmHttpUserContextInterceptor(
         apmService,
         apmOptions.httpUserMapFunction,
       );
@@ -59,7 +59,7 @@ export class ApmModule {
         ApmService,
         APM_INSTANCE,
         APM_MIDDLEWARE,
-        ApmUserContextInterceptor,
+        ApmHttpUserContextInterceptor,
         APM_OPTIONS,
       ],
       module: ApmModule,
