@@ -17,7 +17,7 @@ describe('apm.util', () => {
     it('should initialize connection', () => {
       const { initializeAPMAgent } = require('../../lib/apm/apm.util');
 
-      initializeAPMAgent({});
+      initializeAPMAgent();
 
       expect(APM.start).toBeCalledTimes(1);
     });
@@ -30,7 +30,7 @@ describe('apm.util', () => {
         getInstance,
       } = require('../../lib/apm/apm.util');
 
-      initializeAPMAgent({});
+      initializeAPMAgent();
 
       expect(getInstance()).toBeDefined();
       expect(APM.start).toBeCalledTimes(1);

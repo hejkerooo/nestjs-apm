@@ -2,8 +2,8 @@ import * as APM from 'elastic-apm-node';
 
 let instance: APM.Agent | undefined;
 
-export const initializeAPMAgent = (config: APM.AgentConfigOptions): void => {
-  instance = APM.start(config);
+export const initializeAPMAgent = (config?: APM.AgentConfigOptions): void => {
+  instance = config ? APM.start(config) : APM.start();
 };
 
 export const getInstance = (): APM.Agent => {

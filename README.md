@@ -14,9 +14,20 @@ To your `tsconfig.json` add following lines:
     }
 ```
 
+If your `baseUrl` in `tsconfig.json` is set to some directory, remember to change the path of `elastic-apm-node` 
+
+For example if your `baseUrl: "./src"` you need to replace `.` with `..`
+```json
+"paths": {
+      "elastic-apm-node": [
+        "../node_modules/elastic-apm-nest/types/elastic-apm-node/index.d.ts"
+      ]
+    }
+```
+
 ```typescript
 
-import { APM_MIDDLEWARE, ApmErrorInterceptor, ApmUserContextInterceptor, initializeAPMAgent } from 'elastic-apm-nest';
+import { APM_MIDDLEWARE, ApmErrorInterceptor, ApmHttpUserContextInterceptor, initializeAPMAgent } from 'elastic-apm-nest';
 
 initializeAPMAgent({
   serviceName: '',
@@ -32,7 +43,7 @@ async function bootstrap() {
 
   const apmMiddleware = app.get(APM_MIDDLEWARE);
   const globalInterceptors = [
-    app.get(ApmUserContextInterceptor),
+    app.get(ApmHttpUserContextInterceptor),
     app.get(ApmErrorInterceptor),
   ];
 
@@ -59,7 +70,7 @@ import { ApmModule } from 'elastic-apm-nest';
     ApmModule.forRootAsync({
       useFactory: async () => {
         return {
-          httpUserMapFunction: (request: any) => {
+          httpUserMapFunction: (req: any) => {
             return {
               id: req.user.id,
               username: req.user.username,
@@ -82,7 +93,22 @@ export class AppModule {}
 `APM_MIDDLEWARE` - APM Raw Http middleware for express
 `APM_OPTIONS` - Current configuration for elastic-apm-nest
 
-## Default ApmUserContextInterceptor behavior
+## APM Decorator
+
+There is possibility to use `ApmCurrentTransaction` to inject current transaction
+
+```typescript
+  @HttpCode(200)
+  @Get('/hello-world')
+  getHelloWorld(
+    @ApmCurrentTransaction()
+    transaction: Transaction,
+  ): string {
+    return this.appService.getHello();
+  }
+```
+
+## Default ApmHttpUserContextInterceptor behavior
 It won't set UserContext in transaction if `httpUserMapFunction` is not provided
 
 ## Handling not supported methods
