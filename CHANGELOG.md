@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.7](https://github.com/hejkerooo/nestjs-apm/compare/v0.0.6...v0.0.7) (2020-05-01)
+
+
+### Bug Fixes
+
+* update documentation, make config argument optional ([a5fb05e](https://github.com/hejkerooo/nestjs-apm/commit/a5fb05e20bd27d90ad78f8f8b20549dca798c399))
+
 ### [0.0.6](https://github.com/hejkerooo/nestjs-apm/compare/v0.0.5...v0.0.6) (2020-03-19)
 
 ### 0.0.5 (2020-02-17)
