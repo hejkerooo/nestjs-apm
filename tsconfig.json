@@ -7,7 +7,8 @@
     "noLib": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "target": "es6",
+    "target": "ESNext",
+    "lib": ["esnext", "ES6"],
     "sourceMap": false,
     "outDir": "./dist",
     "rootDir": "./lib",
@@ -21,7 +22,7 @@
       ]
     },
     "typeRoots": [
-      "./node_modules/elastic-apm-node/index.d.ts",
+      "./node_modules/@mitz-it/elastic-apm-node/index.d.ts",
       "./node_modules/@types"
     ]
   },
