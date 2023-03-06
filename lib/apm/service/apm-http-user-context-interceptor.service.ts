@@ -16,7 +16,7 @@ export class ApmHttpUserContextInterceptor extends ApmInterceptorConstructor {
   public intercept(
     context: ExecutionContext,
     next: CallHandler<any>,
-  ): Observable<any> {
+  ): Observable<any> | Promise<Observable<any>> {
     const httpArgumentsHost = context.switchToHttp();
     const request = httpArgumentsHost.getRequest();
 

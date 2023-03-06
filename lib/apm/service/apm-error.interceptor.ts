@@ -13,7 +13,7 @@ export class ApmErrorInterceptor implements NestInterceptor {
   public intercept(
     context: ExecutionContext,
     next: CallHandler<any>,
-  ): Observable<any> {
+  ): Observable<any> | Promise<Observable<any>> {
     return next.handle().pipe(
       catchError(err => {
         this.apmService.captureError(err);
