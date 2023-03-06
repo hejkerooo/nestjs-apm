@@ -7,18 +7,13 @@
     "noLib": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "moduleResolution": "node",
-    "target": "ESNext",
-    "lib": ["esnext", "ES6"],
+    "target": "es6",
     "sourceMap": false,
     "outDir": "./dist",
-    "esModuleInterop": true,
     "rootDir": "./lib",
-    "allowJs": true,
     "skipLibCheck": true,
     "strictNullChecks": true,
     "baseUrl": "./",
-    "inlineSources": false,
     "paths": {
       "*": [
         "lib/*",
@@ -31,8 +26,7 @@
     ]
   },
   "include": [
-    "lib/**/*",
-    "types/**/*"
+    "lib/**/*"
   ],
   "exclude": [
     "node_modules",
