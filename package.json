@@ -1,6 +1,6 @@
 {
   "name": "@mitz-it/elastic-apm-nest",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "Elastic APM for NestJS",
   "author": "Mitz IT",
   "repository": {
@@ -23,7 +23,9 @@
     "docker": "docker-compose -f docker/docker-compose.yml up -d"
   },
   "files": [
-    "dist/**/*"
+    "dist/**/*",
+    "index.js",
+    "index.ts"
   ],
   "engines": {
     "node": ">= 10.15.1"
