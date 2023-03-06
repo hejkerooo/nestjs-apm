@@ -2,14 +2,14 @@
 [NestJS](https://github.com/nestjs/nest) Elastic APM library.
 
 ## Installation
-`npm i elastic-apm-nest --save`
+`npm i @mitz-it/elastic-apm-nest --save`
 
 ## Usage
 To your `tsconfig.json` add following lines:
 ```json
 "paths": {
       "elastic-apm-node": [
-        "./node_modules/elastic-apm-nest/types/elastic-apm-node/index.d.ts"
+        "./node_modules/@mitz-it/elastic-apm-nest/types/elastic-apm-node/index.d.ts"
       ]
     }
 ```
@@ -20,14 +20,14 @@ For example if your `baseUrl: "./src"` you need to replace `.` with `..`
 ```json
 "paths": {
       "elastic-apm-node": [
-        "../node_modules/elastic-apm-nest/types/elastic-apm-node/index.d.ts"
+        "../node_modules/@mitz-it/elastic-apm-nest/types/elastic-apm-node/index.d.ts"
       ]
     }
 ```
 
 ```typescript
 
-import { APM_MIDDLEWARE, ApmErrorInterceptor, ApmHttpUserContextInterceptor, initializeAPMAgent } from 'elastic-apm-nest';
+import { APM_MIDDLEWARE, ApmErrorInterceptor, ApmHttpUserContextInterceptor, initializeAPMAgent } from '@mitz-it/elastic-apm-nest';
 
 initializeAPMAgent({
   serviceName: '',
@@ -63,7 +63,7 @@ As NestJS is not allowing you to use some sort of `ConfigService` there you need
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { ApmModule } from 'elastic-apm-nest';
+import { ApmModule } from '@mitz-it/elastic-apm-nest';
 
 @Module({
   imports: [
@@ -124,4 +124,3 @@ You can inject `APM_INSTANCE` which contains created APM instance via `initializ
 - [] Add examples
 - [] Add renovate
 - [x] Improve typings for elastic-apm
-
