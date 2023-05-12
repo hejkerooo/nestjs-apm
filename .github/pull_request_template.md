@@ -16,7 +16,7 @@
 
 ## Changelog :label:
 
-<!-- Please fill out the changes applicable to your PR, and remove the irrelevant ones. -->
+<!-- Please fill out the changes that are applicable to your PR, and remove the irrelevant ones. -->
 
 ### Fixes :hammer_and_wrench:
 
@@ -36,7 +36,7 @@
 
 ## How Has This Been Tested? :test_tube:
 
-<!-- Please describe the tests that you ran to verify your changes. Please also list any relevant details for your test configuration -->
+<!-- Please describe the tests you ran to verify your changes. Please also list any relevant details for your test configuration -->
 
 - Test scenario 1:
 
