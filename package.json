@@ -1,6 +1,6 @@
 {
   "name": "@mitz-it/elastic-apm-nest",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Elastic APM for NestJS",
   "author": "Mitz IT",
   "repository": {
